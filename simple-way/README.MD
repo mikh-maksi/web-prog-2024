@@ -152,7 +152,7 @@
 
 |№|Завдання|Код|Скріншот|
 |---|---|---|---|
-|2|1. Створіть сайт, використовуючи властивість display:inline-block|<a href="https://github.com/mikh-maksi/karazin-fe/tree/main/simple-way#html">Код сторінки</a>| <img src="img/site.jpg" width="300">|
+|2|1. Створіть сайт, використовуючи властивість display:inline-block|<a href="#inline-block">Код сторінки</a>| <img src="img/site.jpg" width="300">|
 
 
 ### inline-block
