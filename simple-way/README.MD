@@ -1003,7 +1003,7 @@ btn2.addEventListener("click", f_out2);
 
 |№|Завдання|Код|Скріншот|
 |---|---|---|---|
-|8|1. Запрограмуйте квіз, який отримує дані з сервера|<a href = "https://github.com/mikh-maksi/karazin-fe/tree/main/simple-way#JSONQuiz">Код сторінки</a>|<img src="img/quizjson.gif">|
+|8|1. Запрограмуйте квіз, який отримує дані з сервера|<a href = "#JSONQuiz">Код сторінки</a>|<img src="img/quizjson.gif">|
 
 ### JSONQuiz
 
