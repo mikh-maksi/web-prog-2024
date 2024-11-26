@@ -1209,7 +1209,7 @@ export default App;
 1. У папці `src` створюємо папку `components`
 2. У папці `components` створюємо файл `info.js`
 ```js
-import React від "react";
+import React from "react";
 
 class Info extends React.Component{
  render(){
@@ -1221,15 +1221,16 @@ class Info extends React.Component{
  );
  }
 }
-````
-export default Info;
 
+export default Info;
+````
 у файлі `app.js` імпортуємо файл `info.js`:
 
 У заголовку пишемо:
 ```js
 import Info from "./components/info"
-````
+```
+
 у **render** ставимо
 
 `<Info />` у місці, де необхідно виводити дані відповідного компонента.
@@ -1241,7 +1242,7 @@ import Info from "./components/info"
 2. У створеному файлі розмістимо наступний текст:
 
 ```js
-import React від "react";
+import React from "react";
 
 class Form extends React.Component{
  render(){
@@ -1262,23 +1263,82 @@ export default Form;
 #### Створимо компонент Weather
 
 #### Створимо компонент Підключимо компоненти до головного компонента
-
-
-```
-<form />
-<info />
-<Weather />
-```
-
-#### Виведемо результати fetch - запиту
+App.js
 ```js
-    const api_url = await
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=Kharkiv,ua&appid=58c3cca0622442647544fb302144ba06&units=metric`);
-    const data =await api_url.json();
+import React from "react";
+import Info from "./components/info"
+import Form from "./components/form"
+import Weather from "./components/weather"
+
+
+// Підключення до сервісу погоди
+const API_Key = "58c3cca0622442647544fb302144ba06";
+const lnk = "api.openweathermap.org/data/2.5/weather?q=Kiev,ua&appid="+API_Key+"&units=metric";
+const link = "api.openweathermap.org/data/2.5/find?q=London&appid="+API_Key;
+const pb_link = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+
+class App extends React.Component{
+
+  // змінна стану: за замовчуванням задаємо значення змінних як undefined
+  state = {
+    temp:undefined,
+    city:undefined,
+    country:undefined,
+    sunrise:undefined,
+    sunset:undefined,
+    error:undefined,
+  }
+// При зміні стану запускаємо функцію. Стан змінюється при відправці форми.
+  gettingWeather = async (e) =>{
+    e.preventDefault();
+    const city = e.target.elements.city.value;
+    // Якщо змінна city отримає значення.
+    if(city){
+      // відправляємо запит.
+      const api_url = await
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},ua&appid=58c3cca0622442647544fb302144ba06&units=metric`);
+      const data =await api_url.json();
+  //  При зміні стану - змінним передаємо значення
+    this.setState({
+      temp: data.main.temp,
+      city: data.name,
+      country: data.sys.country,
+      sunrise: data.sys.sunrise,
+      sunset: data.sys.sunset,
+      humidity: data.main.humidity,
+      error:""
+    });
+  }
+  }
+
+
+  render(){
+    return (
+      <div>
+        <div>Hello</div>
+        <Info />
+        <Form weatherMethod={this.gettingWeather} />
+        
+        <Weather 
+          temp={this.state.temp}
+          city={this.state.city}
+          country={this.state.country}
+          sunrise={this.state.sunrise}
+          sunset={this.state.sunset}
+          humidity={this.state.humidity}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
 
 ```
+
 
 #### Введемо код у компонент Form
+component/form.js  
 ```js
 import React from "react";
 
@@ -1296,4 +1356,166 @@ class Form extends React.Component{
 
 export default Form;
 ```
+#### Введемо код у компонент Weather
+component/weather.js
 
+```js
+import React from "react";
+
+class Weather extends React.Component{
+    render(){
+        return(
+            <div>
+                {this.props.city &&
+                <div>
+                <p>Положення: {this.props.city}, {this.props.country}</p>
+                <p>Температура: {this.props.temp}</p>
+                <p>Вологість: {this.props.humidity}</p>
+                </div>
+                }
+            </div>
+        );
+    }
+}
+
+export default Weather;
+```
+
+#### Введемо код у компонент Info
+
+```js
+import React from "react";
+
+class Info extends React.Component{
+ render(){
+ return(
+    <div>
+        <h2>Додаток про погоду</h2>
+        <p>Інформація</p>
+    </div>
+       );
+     }
+  }
+
+export default Info;
+```
+
+## Додаток по отримунню інформації щодо курса валют.
+Особливістю цього додатку є те, що на сервері є обмеження CORS - коли не може отримувати дані будь-який браузер. Для обходу цього безпекового обмеження ми можемо встановити в браузері <a href = "https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=en&pli=1">відповідний плагін</a>. Якщо включити даний плагін, то браузер не буде видавати помилку.
+
+## APP
+```js
+
+import './App.css';
+import React from "react";
+import Info from "./components/info"
+import Form from "./components/form"
+import Bank from "./components/bank"
+
+const pb_link = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+
+class App extends React.Component{
+  // змінна стану: за замовчуванням задаємо значення змінних як undefined
+  state = {
+    usd:undefined,
+    eur:undefined
+  }
+// При зміні стану запускаємо функцію. Стан змінюється при відправці форми.
+  gettingBank = async (e) =>{
+    e.preventDefault();
+    // const city = e.target.elements.city.value;
+    // Якщо змінна city отримає значення.
+    if(1){
+      // відправляємо запит.
+      const api_url = await
+        fetch(pb_link);
+      const data =await api_url.json();
+      // console.log(data[0].buy);
+  //  При зміні стану - змінним передаємо значення
+    this.setState({
+
+      usd: data[0].buy,
+      eur: data[1].buy,
+    });
+  }
+  }
+
+
+
+  render(){
+    return (
+      <div>
+        <Info />
+        
+        <Form BankMethod={this.gettingBank} />
+        
+        <Bank 
+          usd={this.state.usd}
+          eur={this.state.eur}
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+## Form
+```js
+import React from "react";
+
+class Form extends React.Component{
+ render(){
+ return(
+    <form onSubmit={this.props.BankMethod}>
+    <button>Отримати курс валют</button>
+</form>
+ );
+ }
+}
+
+export default Form;
+
+```
+
+## Bank
+```js
+import React from "react";
+
+class Bank extends React.Component{
+    render(){
+        return(
+            <div>
+                {
+                <div>
+                <p>USD/UAH: {this.props.usd}</p>
+                <p>EUR/UAH: {this.props.eur}</p>
+                </div>
+                }
+            </div>
+        );
+    }
+}
+
+export default Bank;
+```
+
+## Info
+```js
+import React from "react";
+
+class Info extends React.Component{
+ render(){
+ return(
+    <div>
+        <h2>Дані, отримані від API Privatbank</h2>
+        <p>Курси валют</p>
+    </div>
+       );
+     }
+  }
+
+export default Info;
+```
