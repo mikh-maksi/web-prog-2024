@@ -15,7 +15,7 @@
 1. Відкрийте створену папку **work** у **MS VS Code**.
 <img src = "./img/vscode01.jpg">  
  
-<img src = "./img/vscode02.png">  
+<img src = "./img/win/dir.png">  
 
 2. Створимо файл **index.html** (за допомогою кнопки **New File**)  
 <img src = "./img/vscode04.jpg">  
@@ -24,13 +24,13 @@
 <img src = "./img/vscode07.png">  
 
 4. Збережіть файл
-<img src = "./img/vscode09.png">  
+<img src = "./img/win/save.png">  
 
 5. Відкрийте та запустіть файл **index.html** у папці **work**.
 <img src = "./img/vscode10.png">  
 
-6. Ви побачите результат:
-<img src = "./img/vscode11.png">  
+6. Ви побачите результат:  
+<img src = "./img/win/browser.png">  
 
 Найближчим часом ми будемо вводити код у робоче поле редактора MS VS Code, зберігати код та результат бачити у браузері (при кожному новому збереженні оновлюючи сторінку).
 ## Перші теги
@@ -44,7 +44,7 @@
 <img src = "./img/vscode12.jpg">   
 
 Збережіть введені теги та відкрийте файл index.html у браузері.
-<img src = "./img/vscode13.png">  
+<img src = "./img/win/simple_tags.png">  
 
 ## Абзац, посилання, малюнок
 
@@ -62,7 +62,7 @@
 
 |№|Альтернативні завдання|Код|Скріншот|
 |---|---|---|---|
-|1|1. Створіть сторінку з тегами i,b,img,p,a|<a href = "https://github.com/mikh-maksi/karazin-fe/tree/main/simple-way#html">Код сторінки</a>|<img src="img/html.jpg" width=300>|
+|1|1. Створіть сторінку з тегами i,b,img,p,a|<a href = "#html">Код сторінки</a>|<img src="img/win/news.png" width=300>|
 
 ## HTML
 ```html
