@@ -1,0 +1,18 @@
+body{
+    background-color: aqua;
+}
+.date{
+    font-family: verdana;
+    font-size: 10px;
+}
+#mainList{
+    margin-top:30px;
+    margin-left:50px;
+}
+.block{
+    display: flex;
+    justify-content: space-between;
+}
+.d{
+    border: 1px solid;
+}

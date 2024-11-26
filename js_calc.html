@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id = "inpt1"> + 
+    <input type="text" id = "inpt2">
+    <button id = "btn">Input</button>
+    <p id="result"></p>
+    <script>
+        // var a = prompt("Insert value");
+        // console.log(a);
+        var inpt1 = document.getElementById("inpt1");
+        var inpt2 = document.getElementById("inpt2");
+        var btn = document.getElementById("btn");
+        var result = document.getElementById("result");
+
+        btn.addEventListener("click",fnc);
+
+        function fnc(){
+            result.innerHTML = parseInt(inpt1.value) + parseInt(inpt2.value);
+        }
+
+
+    </script>
+</body>
+</html>
