@@ -258,7 +258,7 @@ footer{
 
 |№|Завдання|Код|Скріншот|
 |---|---|---|---|
-|4|1. Зверстати розклад своєї групи<br>2. Звершити сторінку з фотографіями викладачів своєї кафедри (<a href = "http://www.cyber.kharkov.ua/page-teachers.html">приклад</a>) |<a href = "https://github. com/mikh-maksi/karazin-fe/tree/main/simple-way#Timetable">Код сторінки</a>|<img src = "img/timetable.jpg">|
+|4|1. Зверстати розклад своєї групи<br>2. Звершити сторінку з фотографіями викладачів своєї кафедри (<a href = "http://www.cyber.kharkov.ua/page-teachers.html">приклад</a>) |<a href = "#Timetable">Код сторінки</a>|<img src = "img/timetable.jpg">|
 
 ### Timetable
 ```html
