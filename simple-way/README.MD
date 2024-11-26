@@ -843,7 +843,7 @@ function f_out1 (){
 
 |№|Завдання|Код|Скріншот|
 |---|---|---|---|
-|7|1. Створіть тест із 5 питань з використанням масиву |<a href = "https://github.com/mikh-maksi/karazin-fe/tree/main/simple-way#ArrayQuiz">Код сторінки</a>|<img src="img/quizarray.gif">|
+|7|1. Створіть тест із 5 питань з використанням масиву |<a href = "#ArrayQuiz">Код сторінки</a>|<img src="img/quizarray.gif">|
 ### ArrayQuiz
 ```html
 <!DOCTYPE html>
