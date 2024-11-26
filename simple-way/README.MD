@@ -1157,7 +1157,7 @@ function answers(k){
 
 ## DataBase
 
-**Наполнение БД (MySQL)**
+**Наповнення БД (MySQL)**
 1. Перейшовши за посиланням в СУБД <a href = "https://phpmyadmin.adm.tools/signon.php?user=levelhst_quiz&password=xx2V%29H7%2B4e&account=levelhst">PhpMyAdmin</a>
 2. Створіть запис про свою групу в таблиці **groups** (якщо такого запису ще немає)
 <img src="img/phpmyadmin02.jpg">
@@ -1204,11 +1204,11 @@ export default App;
 
 ```
 
-#### Создаем компоненты
-##### Создадим компонент info
+#### Створюємо компоненти
+##### Створимо компонент info
 1. У папці `src` створюємо папку `components`
 2. У папці `components` створюємо файл `info.js`
-``js
+```js
 import React від "react";
 
 class Info extends React.Component{
