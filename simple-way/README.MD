@@ -1177,7 +1177,7 @@ function answers(k){
 
 |№|Завдання|Код|Скріншот|
 |---|---|---|---|
-|9|1. Створіть програму на React.js|<a href = "https://github.com/mikh-maksi/karazin-fe/tree/main/simple-way#react">Код сторінки</a>| |
+|9|1. Створіть програму на React.js|<a href = "#react">Код сторінки</a>| |
 ### react
 #### Установка
 1. Встановити https://nodejs.org/en/
